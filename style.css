@@ -1,0 +1,87 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(./img/bg.jpeg);
+    color: white;
+}
+.header{
+    background-color: black;
+    color: yellowgreen;
+    font-size: 35px;
+    background-image: url(./img/banner.jpeg);
+}
+.footer{
+    background-color: blueviolet;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: end;
+    gap: 20PX;
+    text-align: justify;
+}
+.ency-header{
+    margin: 20px;
+    padding: 20px;
+  background-image: url(./img/bg.png);
+    color: yellowgreen;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.encbtn{
+    font-size: 25px;
+    font-style: normal;
+    font-display: 24px;
+}
+.ency{
+    background-color: chartreuse;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 150px;
+    background-image: url(./img/encey.jpeg);
+
+}
+.mazak{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.mazakbtn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.decy{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 150px;
+    justify-content: center;
+    background-image: url(./img/decry.jpeg);
+    color: rgb(255, 252, 252);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.para{
+   background-color: aliceblue;
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration:wavy;
+    font-style: oblique;
+    font-feature-settings: "blwf";
+    color: black;
+}
+.file{
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="./nav.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="./encryption.html">Text Encryption</a>
+        <a href="./decryption.html">Text Decryption</a>
+        <a href="./file.html">File Encryption and Decryption</a>
+      </div>
+      
+        <div class="ency-header">
+            <h1>SRZ  Encryption</h1>
+        </div>
+
+        <div class="ponnu">
+        <div class="ency">
+      <b><form>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message"><br><br>
+  
+        <label for="key">Encryption Key:</label>
+        <input type="text" id="key" name="key"><br><br>
+            <div class="encbtn">
+        <button type="button" onclick="encrypt()">Encrypt</button><br><br>
+    </div>
+        <label for="encrypted-message">Encrypted Message:</label>
+        <input type="text" id="encrypted-message" name="encrypted-message" readonly>
+      </form></b>
+
+    </div></div>
+
+    <div class="footer">
+        <p>This project was done by <ul> <br><b>SANTHA KUMAR GK</b>
+        <br><b>RAJKUMAR A</b><br><b>ZAKIR HUSSAIN</b></ul></p>
+        </div>   
+     <script>
+        function encrypt() {
+          // Get the values of the message and key inputs
+          var message = document.getElementById("message").value;
+          var key = document.getElementById("key").value;
+  
+          // Convert the key to a 256-bit key using SHA-256
+          var key256 = CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex).substring(0, 32);
+  
+          // Encrypt the message using AES-256 CBC mode with PKCS#7 padding
+          var ciphertext = CryptoJS.AES.encrypt(message, key256, { mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
+  
+          // Update the value of the encrypted message input
+          document.getElementById("encrypted-message").value = ciphertext.toString();
+        }
+      </script>
+</body>
+</html>

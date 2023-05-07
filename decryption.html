@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decryption</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="./nav.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="./encryption.html">Text Encryption</a>
+        <a href="./decryption.html">Text Decryption</a>
+        <a href="./file.html">File Encryption and Decryption</a>
+      </div>
+        <div class="ency-header">
+            <h1>SRZ  Decryption</h1>
+        </div>
+
+        <div class="container">
+        <div class="decy">
+            <form>
+                <label for="encrypted-message">Encrypted Message:</label>
+                <input type="text" id="encrypted-message" name="encrypted-message"><br><br>
+          
+                <label for="key">Encryption Key:</label>
+                <input type="text" id="key" name="key"><br><br>
+          
+                <button type="button" width="25px"  onclick="decrypt()">Decrypt</button><br><br>
+          
+                <label for="decrypted-message">Decrypted Message:</label>
+                <input type="text" id="decrypted-message" name="decrypted-message" readonly>
+              </form>
+      </form>
+            </div>
+    </div>
+    <div class="footer">
+        <p>This project was done by <ul> <br><b>SANTHA KUMAR GK</b>
+        <br><b>RAJKUMAR A</b><br><b>ZAKIR HUSSAIN</b></ul></p>
+        </div>   
+    <script>
+        function decrypt() {
+          var encryptedMessage = document.getElementById("encrypted-message").value;
+          var key = document.getElementById("key").value;
+          var key256 = CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex).substring(0, 32);
+          var decryptedBytes = CryptoJS.AES.decrypt(encryptedMessage, key256, { mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });
+          var decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
+          document.getElementById("decrypted-message").value = decryptedMessage;
+        }
+      </script>
+</body>
+</html>
